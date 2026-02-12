@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Leko ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff4d6d;
+            --secondary: #ff8fa3;
+            --bg-color: #0b0f19;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-color);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+
+        /* Dynamic Background */
+        .bg-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: floatBackground 10s infinite alternate;
+        }
+
+        .shape:nth-child(1) { width: 400px; height: 400px; background: #590d22; top: -10%; left: -10%; }
+        .shape:nth-child(2) { width: 300px; height: 300px; background: #c9184a; bottom: 10%; right: -5%; animation-duration: 15s; }
+        .shape:nth-child(3) { width: 200px; height: 200px; background: #ffb3c1; top: 40%; left: 40%; animation-duration: 12s; }
+
+        /* Glass Container */
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 10;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ff4d6d, #fff0f3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #ff4d6d;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            position: relative; /* Context for absolute positioning */
+        }
+
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-yes {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 0 15px rgba(255, 77, 109, 0.4);
+        }
+
+        .btn-yes:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 77, 109, 0.7);
+        }
+
+        .btn-no {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Page Transition Logic */
+        .hidden {
+            display: none;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s forwards;
+        }
+
+        /* Visual Effects */
+        .heart-beat {
+            font-size: 5rem;
+            display: block;
+            margin: 0 auto 20px auto;
+            animation: beat 1.2s infinite;
+        }
+
+        #confetti-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* Animations */
+        @keyframes floatBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(20px, 40px); }
+        }
+
+        @keyframes beat {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.25); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+            60% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="card" id="page1">
+        <h1>To Umkam osingle but married🥰</h1>
+        <p>
+            This year is different noko kukhona okufumanayo😅 instead of chocolates and bags, you getting your own website.
+        </p>
+        <p style="font-weight: 600; font-size: 1.2rem; color: #fff;">
+            Are you happy with your gift?
+        </p>
+        <div class="btn-group">
+            <button class="btn-yes" onclick="goToNextPage()">YES</button>
+            <button class="btn-no" id="noBtn" onmouseover="moveButton()" onclick="moveButton()">NO</button>
+        </div>
+    </div>
+
+    <div class="card hidden" id="page2">
+        <span class="heart-beat">❤️</span>
+        <h2>Leko...</h2>
+        <p>
+            You make my code compile and my world brighter. <br>
+            Distance means nothing when you mean everything.
+        </p>
+        <h1 style="font-size: 2.5rem; margin-top: 20px;">Will you be my virtual Valentine?</h1>
+        <div class="btn-group">
+            <button class="btn-yes" onclick="celebrate()">YES, I WILL!</button>
+        </div>
+    </div>
+
+    <script>
+        // --- The "10 Years Experience" Logic ---
+
+        // 1. The "Unpressable" Button Logic
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.querySelector('.btn-yes');
+
+        function moveButton() {
+            // Get viewport dimensions
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            
+            // Get button dimensions
+            const btnWidth = noBtn.offsetWidth;
+            const btnHeight = noBtn.offsetHeight;
+
+            // Calculate new random position within safe bounds
+            // We add a buffer so it doesn't go off-screen
+            const newX = Math.random() * (width - btnWidth - 40) + 20;
+            const newY = Math.random() * (height - btnHeight - 40) + 20;
+
+            noBtn.style.position = 'fixed'; // Switch to fixed to break out of container
+            noBtn.style.left = `${newX}px`;
+            noBtn.style.top = `${newY}px`;
+            
+            // Add a little wobble animation effect
+            noBtn.animate([
+                { transform: 'rotate(0deg)' },
+                { transform: 'rotate(-5deg)' },
+                { transform: 'rotate(5deg)' },
+                { transform: 'rotate(0deg)' }
+            ], { duration: 300 });
+        }
+
+        // Support for mobile touch events on the No button
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevent clicking
+            moveButton();
+        });
+
+        // 2. Page Transition
+        function goToNextPage() {
+            const p1 = document.getElementById('page1');
+            const p2 = document.getElementById('page2');
+
+            // Fade out P1
+            p1.style.opacity = '0';
+            p1.style.transform = 'scale(0.9)';
+            
+            setTimeout(() => {
+                p1.classList.add('hidden');
+                p2.classList.remove('hidden');
+                p2.classList.add('fade-in');
+                
+                // Trigger initial confetti burst
+                startConfetti();
+            }, 400);
+        }
+
+        function celebrate() {
+            // Intense confetti and an alert
+            startConfetti();
+            setInterval(startConfetti, 2000); // Keep it coming
+            alert("Yay! ❤️ I love you!");
+        }
+
+        // 3. Lightweight Custom Confetti System (Canvas)
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particles = [];
+
+        function startConfetti() {
+            for (let i = 0; i < 100; i++) {
+                particles.push({
+                    x: window.innerWidth / 2, // Start from center
+                    y: window.innerHeight / 2,
+                    r: Math.random() * 6 + 2, // radius
+                    dx: (Math.random() - 0.5) * 10, // velocity x
+                    dy: (Math.random() - 0.5) * 10, // velocity y
+                    color: `hsl(${Math.random() * 50 + 330}, 100%, 70%)`, // Pinks and Reds
+                    life: 100
+                });
+            }
+            animateConfetti();
+        }
+
+        function animateConfetti() {
+            if (particles.length === 0) return;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach((p, index) => {
+                p.x += p.dx;
+                p.y += p.dy;
+                p.life--;
+                p.dy += 0.1; // gravity
+
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fill();
+
+                if (p.life <= 0) particles.splice(index, 1);
+            });
+
+            requestAnimationFrame(animateConfetti);
+        }
+
+        // Handle resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+    </script>
+</body>
+</html>
